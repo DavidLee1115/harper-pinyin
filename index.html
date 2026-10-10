@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Harper 的拼音点读台</title><meta name="theme-color" content="#265a47"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/icon.svg"><link rel="stylesheet" href="assets/style.css"><script type="module" src="assets/app.js"></script></head>
+<body>
+<header><div class="brand"><span class="logo" aria-hidden="true">拼</span><div><h1>Harper 的拼音点读台 <small>手机版</small></h1><p>先自己试一试，再听一遍。慢慢来。</p></div></div><span class="local">记录保存在当前设备</span></header>
+<main><audio id="audio-player" preload="none" hidden></audio>
+<div id="audio-warning" class="notice">示范音待核验：能播放不代表发音正确。请家长在「家长设置」逐项试听，再决定是否用于正式练习。</div>
+<nav aria-label="练习方式"><button data-mode="single">单项练习</button><button data-mode="quiz">听音选择</button><button data-mode="review">再练</button><button data-mode="homework">作业原顺序</button><button data-mode="summary">家长摘要</button><button data-mode="settings">家长设置</button></nav>
+<p id="status" role="status" aria-live="polite"></p>
+<section id="practice" class="card" aria-labelledby="practice-title">
+<div class="card-top"><h2 id="practice-title">单项练习</h2><span id="position"></span></div>
+<p id="practice-help" class="muted"></p><div id="syllable" class="syllable"></div><p id="item-label" class="center muted"></p>
+<div id="home-toggle" hidden><label class="check"><input id="home-audio" type="checkbox">允许示范音（关闭后用于独立检查，随时可以停顿）</label></div>
+<div class="center"><button id="listen" class="primary big">听示范</button><button id="attempt" class="big">我试读了</button></div>
+<p id="audio-note" class="center muted"></p>
+<div class="pager"><button id="prev">← 上一项</button><button id="next">下一项 →</button></div>
+<fieldset class="parent-marks"><legend>家长人工记录</legend><button id="independent">独立读出</button><button id="needs">需要再练</button><button id="unmark" class="quiet">撤销标记</button><p id="mark-note" class="muted"></p></fieldset>
+<div id="home-list" hidden></div>
+</section>
+<section id="quiz" class="card" hidden aria-labelledby="quiz-title"><div class="card-top"><h2 id="quiz-title">听音选择</h2><span id="quiz-count"></span></div><p class="muted">点击听音，再选择听到的拼音。可以重听，不用着急。</p><button id="quiz-play" class="primary big">听这一题</button><p id="quiz-audio-note" class="muted"></p><div id="choices" class="choices"></div><p id="quiz-feedback" role="status"></p><button id="quiz-next">换一题</button><p class="muted">这里只记录听音选择结果，不代表朗读准确率或已掌握。</p></section>
+<section id="summary" class="card" hidden aria-labelledby="summary-title"><h2 id="summary-title">家长摘要</h2><p class="muted">以下记录属于本次作业。听示范、主动试读、听音选择和家长标记分别保存。</p><div id="summary-content"></div><button id="new-session">开始新的练习记录（保留作业和音频）</button></section>
+<section id="settings" class="card" hidden aria-labelledby="settings-title"><h2 id="settings-title">家长设置</h2><label for="homework-input">当天作业（带声调，空格分项，换行分行）</label><textarea id="homework-input" rows="4" spellcheck="false" aria-describedby="input-help input-errors"></textarea><p id="input-help" class="muted">先预览再保存。修改作业会开始新的练习记录；保留所有重复项。无声调项不自动当成轻声。</p><div class="actions"><button id="preview" class="primary">预览作业</button><button id="restore">填入示例</button><button id="save" disabled>确认并保存</button></div><div id="input-errors" role="status"></div><div id="preview-content"></div><hr><h3>选择练习范围</h3><p class="muted">用于单项练习和听音选择。作业模式始终保留完整原顺序。</p><div id="selection"></div><button id="select-all">全选</button><hr><h3>逐项核对示范音</h3><p class="muted">候选录音者与逐项发音准确性尚未可靠核验。请核对声母、韵母和声调；有疑点就换本地音频或暂停该项。替代音频只存在当前浏览器，不上传、不录制孩子声音。</p><div id="audio-table"></div><hr><h3>本地记录与隐私</h3><p>当前浏览器会保存作业、必要操作和选择结果、人工标记、家长核对状态及替代音频。同一浏览器使用者可见。无需姓名、学校、账号或云同步。</p><p class="muted">作业、练习记录和替代音频保存在当前设备的浏览器中，夫妻手机与电脑之间不会自动同步。换浏览器或使用隐私浏览会看到另一份记录。网页和预置音频首次通过网络加载。</p><button id="clear" class="danger">清除全部本地记录与替代音频</button><p><a href="docs/AUDIO_SOURCES.md">音频来源与技术核验表</a> · <a href="docs/家长使用说明.md">家长使用说明</a></p></section>
+<footer>不计时、不催促。家长核对后，再安排孩子练习。<p id="offline-status">正在准备离线资源，首次打开需要联网。</p></footer>
+</main></body></html>

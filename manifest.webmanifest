@@ -1,0 +1,18 @@
+{
+  "name": "Harper 的拼音点读台",
+  "short_name": "Harper 拼音",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f5ee",
+  "theme_color": "#265a47",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
